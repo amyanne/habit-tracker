@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @habit_object.name %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @habit_object.date %>
+</p>
+
+<%= link_to 'Edit', edit_habit_object_path(@habit_object) %> |
+<%= link_to 'Back', habit_objects_path %>
