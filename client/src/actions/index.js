@@ -2,16 +2,21 @@ const baseUrl = 'http://localhost:3001'
 
 export const addHabit = habit => {
     return dispatch => {
+        console.log(habit)
+        debugger
         return fetch(baseUrl + '/api/habit_objects', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({habit})
+            body: JSON.stringify(habit)
         })
         .then(response => response.json())
+        
         .then(habit => {
+            
+
             dispatch({type: "ADD_HABIT", habit})
         })
     }
@@ -29,7 +34,7 @@ export const getHabits = () => {
 
 export const getHabit = id => {
     return dispatch => {
-        return fetch(baseUrl + '/api/habits_objects/' + id)
+        return fetch(baseUrl + '/api/habit_objects/' + id)
         .then(response => response.json())
         .then(habit => {
             return dispatch({type: "GET_HABIT", habit})})

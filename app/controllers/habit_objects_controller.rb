@@ -1,8 +1,10 @@
 class HabitObjectsController < ApplicationController
-  before_action :set_habit_object
+  skip_before_action :verify_authenticity_token
+
+   before_action :set_habit_object
     
   def index
-      @habit_objects = habit_object.all
+      @habit_objects = HabitObject.all
       render json: @habit_objects
   end 
 
@@ -11,7 +13,8 @@ class HabitObjectsController < ApplicationController
   end 
 
   def create
-      @habit_object = habit_object.new(habit_object_params)
+    puts "!!!!!!!!!!!!!!!!!@@@@@@@@@@@22 #{habit_object_params}"
+      @habit_object = HabitObject.new(habit_object_params)
 
       if @habit_object.save
           render json: @habit_object
@@ -24,10 +27,10 @@ class HabitObjectsController < ApplicationController
 
   private
   def set_habit_object
-      @habit_object = habit_object.find_by_id(params[:id])
+      @habit_object = HabitObject.find_by_id(params[:id])
   end
   
   def habit_object_params
-      params.require(:habit_object).permit(:name, :date)
+      params.permit(:name, :date)
   end 
 end

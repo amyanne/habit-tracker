@@ -10,6 +10,7 @@ export class HabitNew extends Component {
 
         this.state = {
             name: '',
+            date: ''
         }
     }
 
@@ -33,6 +34,8 @@ export class HabitNew extends Component {
             <div className="input-field">
                 <input type="text" name="name" id="name" value={this.state.name} onChange={this.handleChange} />
                 <label htmlFor="name">Habit</label>
+                <input type="text" name="date" id="date" value={this.state.date} onChange={this.handleChange} />
+                <label htmlFor="date">Date</label>
             </div>
             
             <input type="submit" value="Add a Habit!" className="btn indigo ligthen-2" />
