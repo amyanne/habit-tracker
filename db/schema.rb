@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_04_232105) do
+ActiveRecord::Schema.define(version: 2020_07_04_232855) do
+
+  create_table "completed_habits", force: :cascade do |t|
+    t.date "completed_on"
+    t.integer "habit_object_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["habit_object_id"], name: "index_completed_habits_on_habit_object_id"
+  end
 
   create_table "habit_objects", force: :cascade do |t|
     t.string "name"
@@ -18,4 +26,5 @@ ActiveRecord::Schema.define(version: 2020_07_04_232105) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "completed_habits", "habit_objects"
 end

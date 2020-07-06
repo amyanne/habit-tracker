@@ -13,7 +13,7 @@ class HabitObjectsController < ApplicationController
   end 
 
   def create
-    puts "!!!!!!!!!!!!!!!!!@@@@@@@@@@@22 #{habit_object_params}"
+
       @habit_object = HabitObject.new(habit_object_params)
 
       if @habit_object.save
@@ -31,6 +31,6 @@ class HabitObjectsController < ApplicationController
   end
   
   def habit_object_params
-      params.permit(:name, :date)
+      params.permit(:name)
   end 
 end

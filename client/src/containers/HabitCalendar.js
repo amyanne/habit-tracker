@@ -4,7 +4,7 @@ import HabitItem from '../components/HabitItem';
 
 import { getHabits } from '../actions/index';
 
-export class HabitList extends Component {
+export class HabitCalendar extends Component {
     componentDidMount() {
         this.props.getHabits();
     }
@@ -13,7 +13,7 @@ export class HabitList extends Component {
         const habits = this.props.habits.map((habit, i) => <HabitItem key={i} habit={habit} />)
         return (
             <div>
-                <h2>HABITS</h2>
+                <h2>Habit Calendar</h2>
                 <ul className="collection">
                     {habits}
                 </ul>
@@ -30,4 +30,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { getHabits })(HabitList);
+export default connect(mapStateToProps, { getHabits })(HabitCalendar);

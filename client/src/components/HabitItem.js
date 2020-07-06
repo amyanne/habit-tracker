@@ -8,8 +8,8 @@ const HabitItem = ({ habit }) => {
     return (
         <Card>
             <CardContent>
-                <h3>Name: {habit.name}</h3>
-                <CardTitle><Link to={`/habit_objects/${habit.id}`}>HABIT</Link></CardTitle>
+
+                <CardTitle><Link to={`/habit_objects/${habit.id}`}>{habit.name}</Link></CardTitle>
 
             </CardContent>
         </Card>

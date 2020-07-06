@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './components/Home';
 import HabitNew from './containers/HabitNew';
 import HabitShow from './containers/HabitShow';
-import HabitList from './containers/HabitList'
+import HabitCalendar from './containers/HabitCalendar'
 import Nav from './components/Nav';
 import './App.css';
 
@@ -17,7 +17,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={ Home } />
           <Route exact path="/habit_objects/new" component={ HabitNew } />
-          <Route exact path="/habit_objects" component={ HabitList } />
+          <Route exact path="/habit_objects" component={ HabitCalendar } />
           <Route exact path="/habit_objects/:id" component={ HabitShow } />
          
         </Switch>
