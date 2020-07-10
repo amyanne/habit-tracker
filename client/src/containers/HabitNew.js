@@ -9,9 +9,11 @@ export class HabitNew extends Component {
         super(props);
 
         this.state = {
-            name: ''
+            name: '',
         }
     }
+
+    
 
     handleChange = (e) => {
         this.setState({
@@ -22,6 +24,7 @@ export class HabitNew extends Component {
         e.preventDefault();
         this.props.addHabit(this.state)
         this.props.history.push('/habit_objects');
+        
         
         
     }

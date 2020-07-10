@@ -22,6 +22,18 @@ export const addHabit = habit => {
     }
 }
 
+export const getCompletedHabits = () => {
+    return dispatch => {
+        return fetch(baseUrl + '/api/completed_habits')
+        .then(response => response.json())
+        .then(habits => {
+            return dispatch({ type: "GET_HABITS", habits })
+        })
+
+    }
+    
+}
+
 export const getHabits = () => {
     return dispatch => {
         return fetch(baseUrl + '/api/habit_objects')

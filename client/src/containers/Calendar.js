@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 import moment from 'moment'
+// import HabitNumber from '../components/HabitNumber'
+import HabitList from './HabitList'
+// import CheckBox from './CheckBox'
+
 
 export class Calendar extends Component {
     
@@ -24,58 +28,85 @@ export class Calendar extends Component {
     let seventhDate = moment(dateObject).add(3, 'days').format("MMM Do");
     week.push(startDate, secondDate, thirdDate, fourthDate, fifthDate, sixthDate, seventhDate)
 
-    return week
+    let weekdays = week.map(day => {
+      return (
+        <th key={day} className="week-day">
+         {day}
+        </th>
+      );
+    });
+
+    return weekdays
   }
 
-  // startDate = () => {
-  //   let dateObject = this.state.dateObject;
-  //   let startDate = moment(dateObject).subtract(3, 'days').format("MMM Do");  
   
-  //   return startDate ;
 
-  // }
+  createMatrix = () => {
+    let week = this.createWeek()
+    // let habitNum = HabitNumber
+    const totalSlots = []
+    let rows = []
+    let cells = []
+    
 
-  // nextDay = () => {
-  //   let dateObject = this.state.dateContext;
-  //   let nextDay = moment(dateObject).add(1, 'days').format("MMM Do");
+    
 
-  //   return nextDay ; 
-  // }
+    totalSlots.forEach((row, i) => {
+      if (i % 7 !== 0) {
+        cells.push(row); // if index not equal 7 that means not go to next week
+      } else {
+        rows.push(cells); // when reach next week we contain all td in last week to rows 
+        cells = []; // empty container 
+        cells.push(row); // in current loop we still push current row to new container
+      }
+      if (i === totalSlots.length - 1) { // when end loop we add remain date
+        rows.push(cells);
+      }
+    });
+
+    let habitRows = rows.map((d, i) => {
+      return <tr>{d}</tr>;
+    });
+
+    return (
+      <table className="calendar-day">
+            <thead>
+              <tr>{week}</tr>
+            </thead>
+            <tbody>{habitRows}</tbody>
+          </table>
+    )
+
+  }
 
 
-  // createWeek = () => {
-  //   let week = [];
-  //   let day = this.startDate()
-  //   for (let d = 0; d <= 6; d++) {
-  //     week.push(
-  //       <td key={d} className="calendar-day">
-  //         {day} 
-  //       </td>
-  //     );
-  //     day = moment(day).add(1, 'days').format("MMM Do");
-  //     debugger;
-  // }
-  //   return (
-  //     week
-  //   )
-  // }
     
       renderHeader() {
-        let week = this.createWeek()
+        let matrix = this.createMatrix()
 
 
         return (
+
           <div className="card">  
-              {week}
+          <h2>Habit Calendar</h2>
+              {matrix}
           </div>
           
          
         )
       }
     
-      renderDays() {}
+      renderHabits() {
+        return( 
+         < HabitList />
+        )
+    }
+
+
     
-      renderCells() {}
+      renderCells() {
+
+      }
     
       onDateClick = day => {};
     
@@ -87,7 +118,7 @@ export class Calendar extends Component {
         return (
           <div className="calendar">
             {this.renderHeader()}
-            {this.renderDays()}
+            {this.renderHabits()}
             {this.renderCells()}
           </div>
         );
