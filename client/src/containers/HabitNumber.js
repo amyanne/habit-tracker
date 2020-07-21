@@ -5,21 +5,27 @@ import { getHabits } from '../actions/index';
 export class HabitNumber extends Component {
     componentDidMount() {
         this.props.getHabits();
+        debugger;
     }
-    render() {
-        let habitNum = this.props.habits
+    getNumber = () => {
+        debugger;
+        let habitNum = this.props.habits.length 
 
         debugger;
 
 
         return habitNum
     }
+
+
+    render() {
+        let num = this.getNumber
+
+        debugger;
+
+
+        return num
+    }
   }
   
-  const mapStateToProps = state => {
-    return {
-        habits: state.habitsReducer.habits
-    }
-}
-
-export default connect(mapStateToProps, { getHabits })(HabitNumber);
+  export default HabitNumber

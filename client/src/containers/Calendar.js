@@ -2,23 +2,32 @@ import React, { Component } from 'react'
 import moment from 'moment'
 // import HabitNumber from '../components/HabitNumber'
 import HabitList from './HabitList'
-// import CheckBox from './CheckBox'
+import CheckBox from './CheckBox'
+
 
 
 export class Calendar extends Component {
     
   constructor() {
     super()
+    
+
     this.state = {
       dateContext: moment(),
       today: moment(),
-      selectedDay: null
+      selectedDay: null,
+      habits: < HabitList />
     }
   }
+
+
 
   createWeek = () => {
     let dateObject = this.state.dateObject;
     let week = []
+    // for i = -3; i < 3; i++ {
+    //   week.push(moment(dateObject).add(i, 'days').format("MMM Do"));
+    // }
     let startDate = moment(dateObject).subtract(3, 'days').format("MMM Do");  
     let secondDate = moment(dateObject).subtract(2, 'days').format("MMM Do");  
     let thirdDate = moment(dateObject).subtract(1, 'days').format("MMM Do"); 
@@ -43,13 +52,12 @@ export class Calendar extends Component {
 
   createMatrix = () => {
     let week = this.createWeek()
-    // let habitNum = HabitNumber
+    const habits = this.habits
     const totalSlots = []
     let rows = []
     let cells = []
-    
 
-    
+   
 
     totalSlots.forEach((row, i) => {
       if (i % 7 !== 0) {

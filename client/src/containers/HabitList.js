@@ -9,16 +9,17 @@ export class HabitList extends Component {
         this.props.getHabits();
     }
 
-    habitNumber = () => {
-        let habitNum = this.props.habits.length 
-
-
-        return habitNum
+    habitList() {
+        return this.props.habits
     }
 
     render() {
         const habits = this.props.habits.map((habit, i) => <HabitItem key={i} habit={habit} />)
         
+        
+
+        
+         
         return (
             <div>
                 <ul className="collection">
@@ -36,5 +37,7 @@ const mapStateToProps = state => {
         habits: state.habitsReducer.habits
     }
 }
+
+  
 
 export default connect(mapStateToProps, { getHabits })(HabitList);
