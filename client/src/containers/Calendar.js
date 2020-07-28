@@ -1,24 +1,29 @@
 import React, { Component } from 'react'
 import moment from 'moment'
-// import HabitNumber from '../components/HabitNumber'
-import HabitList from './HabitList'
+import HabitItem from '../components/HabitItem';
 import CheckBox from './CheckBox'
+import { getHabits } from '../actions/index';
+import { connect } from 'react-redux';
 
 
 
 export class Calendar extends Component {
     
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     
 
     this.state = {
       dateContext: moment(),
       today: moment(),
       selectedDay: null,
-      habits: < HabitList />
+      habits: null
     }
   }
+
+  componentDidMount() {
+    this.props.getHabits();
+}
 
 
 
@@ -37,6 +42,8 @@ export class Calendar extends Component {
     let seventhDate = moment(dateObject).add(3, 'days').format("MMM Do");
     week.push(startDate, secondDate, thirdDate, fourthDate, fifthDate, sixthDate, seventhDate)
 
+    
+
     let weekdays = week.map(day => {
       return (
         <th key={day} className="week-day">
@@ -52,12 +59,26 @@ export class Calendar extends Component {
 
   createMatrix = () => {
     let week = this.createWeek()
-    const habits = this.habits
+    const habits = this.props.habits
     const totalSlots = []
     let rows = []
-    let cells = []
+    let placeHolder = []
+    let cells = [7]
 
-   
+    // habits.forEach((habit, i) => {
+    //  let row = []
+    //  //row.push(<HabitItem key={i} habit={habit} />)
+    //  row.push(habit)
+    //  let j = 0;
+    // while (j < 7) {
+    //   row.push(< CheckBox />)
+    //   i++
+    // }
+    // //placeHolder.push(row)
+     
+    // });
+    
+    
 
     totalSlots.forEach((row, i) => {
       if (i % 7 !== 0) {
@@ -73,7 +94,7 @@ export class Calendar extends Component {
     });
 
     let habitRows = rows.map((d, i) => {
-      return <tr>{d}</tr>;
+      return <tr> < CheckBox /> </tr>;
     });
 
     return (
@@ -105,9 +126,7 @@ export class Calendar extends Component {
       }
     
       renderHabits() {
-        return( 
-         < HabitList />
-        )
+        
     }
 
 
@@ -133,4 +152,12 @@ export class Calendar extends Component {
       }
     }
 
-export default Calendar
+    const mapStateToProps = state => {
+      return {
+          habits: state.habitsReducer.habits
+      }
+  }
+  
+    
+  
+  export default connect(mapStateToProps, { getHabits })(Calendar);

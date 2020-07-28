@@ -2,8 +2,6 @@ const baseUrl = 'http://localhost:3001'
 
 export const addHabit = habit => {
     return dispatch => {
-        console.log(habit)
-        debugger
         return fetch(baseUrl + '/api/habit_objects', {
             method: 'POST',
             headers: {

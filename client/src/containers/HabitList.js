@@ -10,15 +10,19 @@ export class HabitList extends Component {
     }
 
     habitList() {
+        this.props.getHabits();
+
         return this.props.habits
+        
+    }
+
+    getHabits() {
+        return this.props.habits.map((habit, i) => <HabitItem key={i} habit={habit} />)
     }
 
     render() {
-        const habits = this.props.habits.map((habit, i) => <HabitItem key={i} habit={habit} />)
-        
-        
+        const habits = this.getHabits();
 
-        
          
         return (
             <div>
