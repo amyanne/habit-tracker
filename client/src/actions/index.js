@@ -13,19 +13,33 @@ export const addHabit = habit => {
         .then(response => response.json())
         
         .then(habit => {
-            
-
-            dispatch({type: "ADD_HABIT", habit})
+             dispatch({type: "ADD_HABIT", habit})
         })
     }
 }
-
+export const addCompletedHabit = completedHabit => {
+    return dispatch => {
+        return fetch(baseUrl + '/api/completed_habits', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(completedHabit)
+        })
+        .then(response => response.json())
+        
+        .then(habit => {
+             dispatch({type: "ADD_COMPLETED_HABIT", completedHabit})
+        })
+    }
+}
 export const getCompletedHabits = () => {
     return dispatch => {
         return fetch(baseUrl + '/api/completed_habits')
         .then(response => response.json())
-        .then(habits => {
-            return dispatch({ type: "GET_COMPLETED_HABITS", habits })
+        .then(completedHabits => {
+            return dispatch({ type: "GET_COMPLETED_HABITS", completedHabits })
         })
 
     }

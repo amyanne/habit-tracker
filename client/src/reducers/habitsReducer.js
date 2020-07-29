@@ -1,6 +1,6 @@
 const initialState = {
     habits: [],
-    habit: {}
+    habit: {},
 }
 
 const habitsReducer = (state = initialState, action) => {
@@ -10,6 +10,7 @@ const habitsReducer = (state = initialState, action) => {
                 ...state,
                 habits: [...state.habits, action.habit]
             }
+
         case "GET_HABITS":
             return {
                 ...state, habits: action.habits
@@ -20,10 +21,7 @@ const habitsReducer = (state = initialState, action) => {
                 
             }
 
-        case "GET_COMPLETE_HABITS":
-            return {
-                ...state, completedHabits: action.completedHabits
-            }
+        
         default:
             return state;
     }

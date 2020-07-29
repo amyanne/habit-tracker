@@ -49,14 +49,16 @@ export class Calendar extends Component {
 
   createMatrix = () => {
     let week = this.createWeek()
-    const habits = this.props.habits.map((habit, i) => <HabitItem key={i} habit={habit} />)
+    let habits = this.props.habits.map((habit, i) => <HabitItem key={i} habit={habit} />)
     let weekArray = []
+    habits.unshift("Habits")
+    weekArray.push(habits)
 
     week.forEach((day, i) => {
      let row = []
      
      row.push(day)
-     for(let i = 0; i < habits.length; i++){
+     for(let i = 0; i < habits.length - 1; i++){
        let col = < Checked />
         row.push(col)
       
@@ -105,18 +107,7 @@ export class Calendar extends Component {
         )
       }
     
-      renderHabits() {
-        const habits = this.props.habits.map((habit, i) => <HabitItem key={i} habit={habit} />)
-
-        return (
-          <div className="habit-list" >  
-              {habits}
-          </div>
-          
-        )
-        
-        }
-
+      
 
     
       renderCells() {
@@ -133,7 +124,6 @@ export class Calendar extends Component {
         return (
           <div className="calendar">
             {this.renderHeader()}
-            {this.renderHabits()}
             {this.renderCells()}
           </div>
         );
