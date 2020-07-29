@@ -25,7 +25,7 @@ export const getCompletedHabits = () => {
         return fetch(baseUrl + '/api/completed_habits')
         .then(response => response.json())
         .then(habits => {
-            return dispatch({ type: "GET_HABITS", habits })
+            return dispatch({ type: "GET_COMPLETED_HABITS", habits })
         })
 
     }

@@ -228,6 +228,21 @@ main {
   flex-basis: calc(100%/7);
   width: calc(100%/7);
 }
+
+.habit-list {
+  align-content: left;
+}
+
+.habit-list tbody {
+    margin: 0;
+  position: absolute;               /* 2 */
+  top: 50%;                         /* 3 */
+  transform: translate(0, -50%) }
+
+ 
+
+  
+
 .App {
   text-align: center;
 }

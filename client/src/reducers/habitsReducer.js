@@ -19,6 +19,11 @@ const habitsReducer = (state = initialState, action) => {
                 ...state, habit: action.habit
                 
             }
+
+        case "GET_COMPLETE_HABITS":
+            return {
+                ...state, completedHabits: action.completedHabits
+            }
         default:
             return state;
     }
