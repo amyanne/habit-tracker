@@ -22,6 +22,8 @@ export class Calendar extends Component {
 
   componentDidMount() {
     this.props.getHabits();
+    console.log("example")
+    console.log(this.props)
 }
 
 

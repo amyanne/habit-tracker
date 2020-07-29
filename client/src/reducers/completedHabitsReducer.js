@@ -11,9 +11,10 @@ const completedHabitsReducer = (state = initialState, action) => {
                 completedHabits: [...state.completedHabits, action.completedHabit]
             }
         
-        case "GET_COMPLETE_HABITS":
+        case "GET_COMPLETED_HABITS":
+            
             return {
-                ...state, habits: action.habits
+                ...state, completedHabits: action.completedHabits
             }
         default:
             return state;

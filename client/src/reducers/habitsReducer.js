@@ -12,7 +12,7 @@ const habitsReducer = (state = initialState, action) => {
             }
 
         case "GET_HABITS":
-            return {
+             return {
                 ...state, habits: action.habits
             }
         case "GET_HABIT":

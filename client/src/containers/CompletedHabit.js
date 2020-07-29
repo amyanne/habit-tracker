@@ -5,6 +5,7 @@ import { getCompletedHabits } from '../actions/index';
 export class CompletedHabit extends Component {
     componentDidMount() {
         this.props.getCompletedHabits();
+
         console.log("@@@@@@@@@@@@@@@@@@@@")
         console.log(this.props)
     }
@@ -15,7 +16,7 @@ export class CompletedHabit extends Component {
 
         console.log("!!!!")
 
-        console.log(habits)
+        console.log(this.completedHabits)
 
          
         return (

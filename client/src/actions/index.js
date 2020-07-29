@@ -29,7 +29,7 @@ export const addCompletedHabit = completedHabit => {
         })
         .then(response => response.json())
         
-        .then(habit => {
+        .then(completedHabit => {
              dispatch({type: "ADD_COMPLETED_HABIT", completedHabit})
         })
     }
