@@ -1,3 +1,3 @@
 class CompletedHabit < ApplicationRecord
-    validates :completed_on, presence: true
+    validates :habit_object_id, presence: true
 end
