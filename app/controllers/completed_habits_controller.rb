@@ -1,5 +1,6 @@
 class CompletedHabitsController < ApplicationController
     before_action :set_completed_habit
+    skip_before_action :verify_authenticity_token
       
     def index
         @completed_habits = CompletedHabit.all
@@ -9,7 +10,7 @@ class CompletedHabitsController < ApplicationController
   
     def create
   
-        @completed_habit = CompletedHabit.new(completed_habit__params)
+        @completed_habit = CompletedHabit.new(completed_habit_params)
   
         if @completed_habit.save
             render json: @completed_habit

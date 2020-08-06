@@ -7,22 +7,21 @@ export class CompletedHabit extends Component {
         this.props.getCompletedHabits();
 
         console.log("@@@@@@@@@@@@@@@@@@@@")
-        console.log(this.props)
+        console.log(this.props.getCompletedHabits())
     }
 
     render() {
-        const habits = this.props.completedHabits
+        
 
 
         console.log("!!!!")
 
-        console.log(this.completedHabits)
+        console.log(this.props.completedHabits)
 
          
         return (
             <div>
                 <ul className="collection">
-                    {habits} 
                 </ul>
             </div>
         )
@@ -32,7 +31,7 @@ export class CompletedHabit extends Component {
 
 const mapStateToProps = state => {
     return {
-        completedHabits: state.completedHabitsReducer.completedhabits
+        completedHabits: state.completedHabitsReducer.completedHabits
     }
 }
 

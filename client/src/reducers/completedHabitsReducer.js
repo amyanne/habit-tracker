@@ -6,13 +6,13 @@ const completedHabitsReducer = (state = initialState, action) => {
     switch(action.type) {
         
         case "ADD_COMPLETED_HABIT":
+            console.log(action.completedHabit)
             return {
                 ...state,
                 completedHabits: [...state.completedHabits, action.completedHabit]
             }
         
         case "GET_COMPLETED_HABITS":
-            
             return {
                 ...state, completedHabits: action.completedHabits
             }

@@ -1,6 +1,8 @@
 const baseUrl = 'http://localhost:3001'
 
 export const addHabit = habit => {
+    console.log("habit bitch")
+    console.log(habit)
     return dispatch => {
         return fetch(baseUrl + '/api/habit_objects', {
             method: 'POST',
@@ -18,6 +20,9 @@ export const addHabit = habit => {
     }
 }
 export const addCompletedHabit = completedHabit => {
+    let habit = {completedOn: completedHabit.completedOn, habitObjectId: completedHabit.habitObjectId}
+    console.log("in the index")
+    console.log(habit)
     return dispatch => {
         return fetch(baseUrl + '/api/completed_habits', {
             method: 'POST',
@@ -25,12 +30,12 @@ export const addCompletedHabit = completedHabit => {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(completedHabit)
+            body: JSON.stringify(habit)
         })
         .then(response => response.json())
         
-        .then(completedHabit => {
-             dispatch({type: "ADD_COMPLETED_HABIT", completedHabit})
+        .then(habit => {
+             dispatch({type: "ADD_COMPLETED_HABIT", habit})
         })
     }
 }

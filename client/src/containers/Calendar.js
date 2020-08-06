@@ -6,6 +6,7 @@ import { getHabits } from '../actions/index';
 import { connect } from 'react-redux';
 
 
+
 export class Calendar extends Component {
     
   constructor(props) {
@@ -23,7 +24,7 @@ export class Calendar extends Component {
   componentDidMount() {
     this.props.getHabits();
     console.log("example")
-    console.log(this.props)
+    console.log(this.props.habits)
 }
 
 
@@ -61,7 +62,10 @@ export class Calendar extends Component {
      
      row.push(day)
      for(let i = 0; i < habits.length - 1; i++){
-       let col = < Checked />
+       let col = < Checked
+       habitObjectId={i+1}
+       completedOn={day}
+        />
         row.push(col)
       
      }
@@ -71,7 +75,7 @@ export class Calendar extends Component {
 
     
 
-    let finishedColumn = weekArray.map((check, i) => {
+    let finishedColumns = weekArray.map((check, i) => {
       return (
         <th key={i} className="finished-colomn">
           <tr>
@@ -86,7 +90,7 @@ export class Calendar extends Component {
 
     return (
       <table className="calendar-day">
-            <tbody>{finishedColumn}</tbody>
+            <tbody>{finishedColumns}</tbody>
           </table>
     )
 

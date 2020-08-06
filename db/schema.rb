@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_04_232855) do
+ActiveRecord::Schema.define(version: 2020_08_05_220830) do
 
   create_table "completed_habits", force: :cascade do |t|
     t.date "completed_on"
     t.integer "habit_object_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "habit_name"
     t.index ["habit_object_id"], name: "index_completed_habits_on_habit_object_id"
   end
 
