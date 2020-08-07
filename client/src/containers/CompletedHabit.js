@@ -5,29 +5,34 @@ import { getCompletedHabits } from '../actions/index';
 export class CompletedHabit extends Component {
     componentDidMount() {
         this.props.getCompletedHabits();
-
-        console.log("@@@@@@@@@@@@@@@@@@@@")
-        console.log(this.props.getCompletedHabits())
     }
+
+    
 
     render() {
         
-
-
-        console.log("!!!!")
-
-        console.log(this.props.completedHabits)
-
-         
-        return (
+        const habits = this.props.completedHabits.map((habit, i) => {
+            return( <div key={i} className="finished-colomn">
             <div>
-                <ul className="collection">
-                </ul>
-            </div>
-        )
-    }
+                {habit.habit_name}
+                </div>
+                <div>
+                      
+                {habit.completed_on}
+           </div>
+          </div>
+        );
+      });
 
+      console.log(this.props.completedHabits)
+        
+        return habits
+        
+        
+    }
 }
+
+
 
 const mapStateToProps = state => {
     return {

@@ -20,7 +20,7 @@ export const addHabit = habit => {
     }
 }
 export const addCompletedHabit = completedHabit => {
-    let habit = {completedOn: completedHabit.completedOn, habitObjectId: completedHabit.habitObjectId}
+    let habit = {completed_on: completedHabit.completedOn, habit_object_id: completedHabit.habitObjectId}
     console.log("in the index")
     console.log(habit)
     return dispatch => {
@@ -32,7 +32,7 @@ export const addCompletedHabit = completedHabit => {
             },
             body: JSON.stringify(habit)
         })
-        .then(response => response.json())
+        //.then(response => response.json())
         
         .then(habit => {
              dispatch({type: "ADD_COMPLETED_HABIT", habit})

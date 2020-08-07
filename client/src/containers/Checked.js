@@ -28,18 +28,12 @@ class Checked extends Component {
   
     event.preventDefault();
       this.props.addCompletedHabit(this.props )
-      console.log("state")
-      console.log(this.state)
-      console.log("props")
-      console.log(this.props)
-      //this.props.history.push('/completed_habits');
+      // console.log(this.props.history)
+      
+      // this.props.history.push('/completed_habits');
   }
 
-  handleSubmit = (e) => {
-    e.preventDefault();
-      this.props.addCompletedHabit(this.state)
-      this.props.history.push('/completed_habits');
-    }
+  
   
 
   render() {

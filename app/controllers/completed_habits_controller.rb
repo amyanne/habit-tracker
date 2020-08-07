@@ -3,7 +3,13 @@ class CompletedHabitsController < ApplicationController
     skip_before_action :verify_authenticity_token
       
     def index
+        # habits = Habit.all
         @completed_habits = CompletedHabit.all
+        @completed_habits.map {|ch| 
+        habit_name = HabitObject.find_by id: (ch.habit_object_id)
+        
+        ch[:habit_name] = habit_name.name
+        }
         render json: @completed_habits
     end 
   
@@ -26,8 +32,8 @@ class CompletedHabitsController < ApplicationController
         @completed_habit = CompletedHabit.find_by_id(params[:id])
     end
     
-    def habit_object_params
-        params.permit(:completed_on, :habit_object_id)
+    def completed_habit_params
+        params.permit(:completed_on, :habit_object_id, :completed_habit)
     end 
   end
   
