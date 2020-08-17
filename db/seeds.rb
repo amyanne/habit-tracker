@@ -6,4 +6,3 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-CompletedHabit.create(completed_on: "July 29th", habit_object_id: 1)

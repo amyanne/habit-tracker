@@ -30,7 +30,7 @@ class Checked extends Component {
       this.props.addCompletedHabit(this.props )
       // console.log(this.props.history)
       
-      // this.props.history.push('/completed_habits');
+      
   }
 
   

@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import moment from 'moment'
+import { connect } from 'react-redux';
 import HabitItem from '../components/HabitItem';
 import Checked from './Checked'
 import { getHabits } from '../actions/index';
-import { connect } from 'react-redux';
-
 
 
 export class Calendar extends Component {
@@ -32,17 +31,12 @@ export class Calendar extends Component {
   createWeek = () => {
     let dateObject = this.state.dateObject;
     let week = []
-    // for i = -3; i < 3; i++ {
-    //   week.push(moment(dateObject).add(i, 'days').format("MMM Do"));
-    // }
-    let startDate = moment(dateObject).subtract(3, 'days').format("MMM Do");  
-    let secondDate = moment(dateObject).subtract(2, 'days').format("MMM Do");  
-    let thirdDate = moment(dateObject).subtract(1, 'days').format("MMM Do"); 
-    let fourthDate = moment(dateObject).format("MMM Do"); 
-    let fifthDate = moment(dateObject).add(1, 'days').format("MMM Do");
-    let sixthDate = moment(dateObject).add(2, 'days').format("MMM Do");
-    let seventhDate = moment(dateObject).add(3, 'days').format("MMM Do");
-    week.push(startDate, secondDate, thirdDate, fourthDate, fifthDate, sixthDate, seventhDate)
+    
+    for(let i = -3; i < 4; i++){
+      let day = moment(dateObject).add(i, 'days').format("MMM Do");
+      week.push(day)
+
+    }
 
 
     return week
