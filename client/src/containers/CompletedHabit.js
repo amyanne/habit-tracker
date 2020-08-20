@@ -7,11 +7,23 @@ export class CompletedHabit extends Component {
         this.props.getCompletedHabits();
     }
 
-    
+
+    sortByDate() {
+        const habits = this.props.completedHabits
+        let sorted = habits.sort((a, b) => a.completed_on - b.completed_on)
+       
+
+
+        return sorted
+    }
+
 
     render() {
+        let habits = this.sortByDate()
         
-        const habits = this.props.completedHabits.map((habit, i) => {
+
+
+        let habitList = habits.map((habit, i) => {
             return( <div key={i} className="finished-colomn">
             <div>
                 {habit.habit_name}
@@ -24,9 +36,8 @@ export class CompletedHabit extends Component {
         );
       });
 
-      console.log(this.props.completedHabits)
         
-        return habits
+        return habitList
         
         
     }

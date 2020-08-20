@@ -10,7 +10,7 @@ export class Nav extends Component {
                     <ul id="nav-mobile" className="right hide-on-med-and-down">
                         <li><Link to="/habit_objects/new">New Habit</Link></li>
                         <li><Link to="/habit_objects">Current Habits</Link></li>
-                        <li><Link to="/completed_habits">Completed</Link></li>
+                        <li><Link to="/completed_habits"  >Completed</Link></li>
                     </ul>
                 </div>
                 

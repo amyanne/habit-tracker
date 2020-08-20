@@ -22,8 +22,6 @@ export class Calendar extends Component {
 
   componentDidMount() {
     this.props.getHabits();
-    console.log("example")
-    console.log(this.props.habits)
 }
 
 
@@ -53,7 +51,6 @@ export class Calendar extends Component {
 
     week.forEach((day, i) => {
      let row = []
-     
      row.push(day)
      for(let i = 0; i < habits.length - 1; i++){
        let col = < Checked

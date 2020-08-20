@@ -26,9 +26,8 @@ class Checked extends Component {
   handleCheckboxChange = event => {
     this.setState({ checked: event.target.checked })
   
-    event.preventDefault();
       this.props.addCompletedHabit(this.props )
-      // console.log(this.props.history)
+      //this.props.history.push('/completed_habits)');
       
       
   }

@@ -21,7 +21,6 @@ export class HabitNew extends Component {
         })
     }
     handleSubmit = (e) => {
-        console.log(this.state)
         e.preventDefault();
         this.props.addHabit(this.state)
         this.props.history.push('/habit_objects');
