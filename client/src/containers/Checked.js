@@ -16,10 +16,7 @@ class Checked extends Component {
        completedOn: props
     }
 }
-// componentDidMount() {
-//   debugger
-//   this.props.getCompletedHabits();
-// }
+
 
 
 
@@ -27,7 +24,6 @@ class Checked extends Component {
     this.setState({ checked: event.target.checked })
   
       this.props.addCompletedHabit(this.props )
-      //this.props.history.push('/completed_habits)');
       
       
   }
