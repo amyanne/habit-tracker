@@ -8,18 +8,10 @@ export class CompletedHabit extends Component {
     }
 
 
-    sortByDate() {
-        const habits = this.props.completedHabits
-        let sorted = habits.sort((a, b) => a.completed_on - b.completed_on)
-       
-
-
-        return sorted
-    }
 
 
     render() {
-        let habits = this.sortByDate()
+        let habits = this.props.completedHabits
         
 
 
@@ -38,6 +30,7 @@ export class CompletedHabit extends Component {
 
         
         return habitList
+            
         
         
     }

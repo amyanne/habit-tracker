@@ -27,7 +27,7 @@ export const addCompletedHabit = completedHabit => {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(completedHabit)
+            body: JSON.stringify(habit)
         })
         //.then(response => response.json())
         

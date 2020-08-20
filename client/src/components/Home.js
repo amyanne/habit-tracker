@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Calendar from "../containers/Calendar";
+
 
 
 export class Home extends Component {
@@ -7,7 +7,7 @@ export class Home extends Component {
         return(
             <div>
                 <h1>Habit Tracker!</h1>
-                <Calendar />
+                <h2>Create new habits and track the days you do them!</h2>
             </div>
         )
     }
