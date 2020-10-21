@@ -67,6 +67,7 @@ export class Calendar extends Component {
     
 
     let finishedColumns = weekArray.map((check, i) => {
+      
       return (
         <th key={i} className="finished-colomn">
           <tr>
