@@ -1,5 +1,6 @@
 <h1> Habit Tracker! <h1/>
-  ![Demo](https://github.com/amyanne/habit-tracker/blob/master/Demo/habit-tracker%20git.gif)
+ 
+ ![Demo](https://github.com/amyanne/habit-tracker/blob/master/Demo/habit-tracker%20git.gif)
   
 <h4> Habit Tracker is an API that allows for users to create a calendar with custom habits and track what days they complete them.</h4>
 <h2> Features </h2> 
